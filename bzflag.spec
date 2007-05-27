@@ -1,6 +1,6 @@
 %define	name	bzflag
 %define version 2.0.8
-%define release %mkrel 5
+%define release %mkrel 6
 %define	Summary	A multiplayer 3D tank battle game
 %define libname %mklibname %{name} 2
 
@@ -36,13 +36,6 @@ ever on Silicon Graphics systems.
 rm -rf %{buildroot}
 %{makeinstall_std}
 
-mkdir -p %{buildroot}%{_menudir}
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{name}" icon="%{name}.png" \
-  needs="x11" section="More Applications/Games/Arcade" title="BZflag" \
-  longtitle="%{Summary}" xdg="true"
-EOF
-
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -55,7 +48,6 @@ Type=Application
 Categories=X-MandrivaLinux-MoreApplications-Games-Arcade;Game;ArcadeGame;
 Encoding=UTF-8
 EOF
-
 
 install -m644 %{SOURCE11} -D %{buildroot}%{_miconsdir}/%{name}.png
 install -m644 %{SOURCE12} -D %{buildroot}%{_iconsdir}/%{name}.png
@@ -76,10 +68,7 @@ rm -rf %{buildroot}
 %{_gamesbindir}/*
 %{_gamesdatadir}/%{name}
 %{_mandir}/*/*
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-
-
