@@ -18,7 +18,6 @@ Group:		Games/Arcade
 BuildRequires:	mesa-common-devel X11-devel curl-devel zlib-devel
 BuildRequires:	SDL-devel SDL_image-devel
 BuildConflicts:	freetds-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Epoch:		1
 
 %description
