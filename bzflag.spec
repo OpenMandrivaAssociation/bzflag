@@ -1,6 +1,6 @@
 %define	name	bzflag
 %define version 2.0.10
-%define release %mkrel 1
+%define release %mkrel 2
 %define	Summary	A multiplayer 3D tank battle game
 %define libname %mklibname %{name} 2
 
@@ -9,11 +9,14 @@ Summary:	%{Summary}
 Version:	%{version}
 Release:	%{release}
 Source0:	http://download.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
+Patch0: bzflag-2.0.4-lookup.patch
+Patch1: bzflag-2.0.10-plugins.patch
+Patch2: bzflag-2.0.10-gcc-4.3.patch
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
 URL:		http://BZFlag.SourceForge.net/
-License:	GPL
+License:	LGPLv2
 Group:		Games/Arcade
 BuildRequires:	mesa-common-devel X11-devel curl-devel zlib-devel
 BuildRequires:	SDL-devel SDL_image-devel
@@ -27,6 +30,9 @@ ever on Silicon Graphics systems.
 
 %prep
 %setup -q
+%patch0 -p1 -b .lookup
+%patch1 -p1 -b .plugins
+%patch2 -p1 -b .gcc-4.3
 
 %build
 %configure --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir} --enable-robots
