@@ -1,6 +1,6 @@
 %define	name	bzflag
-%define version 2.0.10
-%define release %mkrel 2
+%define version 2.0.12
+%define release %mkrel 1
 %define	Summary	A multiplayer 3D tank battle game
 %define libname %mklibname %{name} 2
 
@@ -31,11 +31,11 @@ ever on Silicon Graphics systems.
 %prep
 %setup -q
 %patch0 -p1 -b .lookup
-%patch1 -p1 -b .plugins
+#%patch1 -p1 -b .plugins
 %patch2 -p1 -b .gcc-4.3
 
 %build
-%configure --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir} --enable-robots
+%configure2_5x --bindir=%{_gamesbindir} --datadir=%{_gamesdatadir} --enable-robots
 %make CXXFLAGS="$RPM_OPT_FLAGS -O1 -ffast-math -fno-exceptions -fsigned-char"
 
 %install
