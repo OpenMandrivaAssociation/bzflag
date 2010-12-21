@@ -16,8 +16,13 @@ Source13:	%{name}.48.png
 URL:		http://BZFlag.SourceForge.net/
 License:	LGPLv2
 Group:		Games/Arcade
-BuildRequires:	mesa-common-devel X11-devel curl-devel zlib-devel
-BuildRequires:	SDL-devel SDL_image-devel
+BuildRequires:	SDL-devel
+BuildRequires:	curl-devel
+BuildRequires:	zlib-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	glew-devel
+BuildRequires:	mesaglu-devel
+BuildRequires:	c-ares-devel
 BuildConflicts:	freetds-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Epoch:		1
