@@ -1,6 +1,6 @@
 %define	name	bzflag
 %define version 2.0.16
-%define release %mkrel 2
+%define release %mkrel 3
 %define	Summary	A multiplayer 3D tank battle game
 %define libname %mklibname %{name} 2
 
