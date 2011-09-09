@@ -18,6 +18,7 @@ BuildRequires:	glew-devel
 BuildRequires:	mesaglu-devel
 BuildRequires:	c-ares-devel
 BuildRequires:	openldap-devel
+BuildRequires:	desktop-file-utils
 BuildConflicts:	freetds-devel
 Epoch:		1
 
@@ -48,7 +49,8 @@ CXXFLAGS="$CFLAGS" \
 rm -f %{buildroot}%{_libdir}/%{name}/*la
 
 install -d %{buildroot}{%{_datadir}/applications,%{_iconsdir}}
-mv %{buildroot}%{_gamesdatadir}/%{name}/bzflag.desktop %{buildroot}%{_datadir}/applications
+desktop-file-install	--dir %{buildroot}%{_datadir}/applications \
+			%{buildroot}%{_gamesdatadir}/%{name}/bzflag.desktop
 cp %{buildroot}%{_gamesdatadir}/%{name}/bzflag-48x48.png %{buildroot}%{_iconsdir}
 
 %files
