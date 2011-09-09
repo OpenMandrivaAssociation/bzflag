@@ -48,6 +48,7 @@ CXXFLAGS="$CFLAGS" \
 %makeinstall_std
 rm -f %{buildroot}%{_libdir}/%{name}/*la
 
+cp -a misc/maps/ %{buildroot}%{_gamesdatadir}/%{name}/
 install -d %{buildroot}{%{_datadir}/applications,%{_iconsdir}}
 desktop-file-install	--dir %{buildroot}%{_datadir}/applications \
 			%{buildroot}%{_gamesdatadir}/%{name}/bzflag.desktop
