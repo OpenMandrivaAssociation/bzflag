@@ -1,7 +1,7 @@
 Name:		bzflag
 Summary:	A multiplayer 3D tank battle game
 Version:	2.4.0
-Release:	1
+Release:	2
 Source0:	http://download.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
 Patch0:		bzflag-2.0.4-lookup.patch
 Source11:	%{name}.16.png
@@ -10,6 +10,7 @@ Source13:	%{name}.48.png
 URL:		http://BZFlag.SourceForge.net/
 License:	LGPLv2
 Group:		Games/Arcade
+BuildRequires:	chrpath
 BuildRequires:	SDL-devel
 BuildRequires:	curl-devel
 BuildRequires:	zlib-devel
@@ -46,6 +47,10 @@ CXXFLAGS="$CFLAGS" \
 
 %install
 %makeinstall_std
+# ugly but gets it done..
+for file in %{buildroot}{%{_gamesbindir}/*,%{_libdir}/%{name}/*.so}; do
+    chrpath -d $file
+done
 rm -f %{buildroot}%{_libdir}/%{name}/*la
 
 cp -a misc/maps/ %{buildroot}%{_gamesdatadir}/%{name}/
