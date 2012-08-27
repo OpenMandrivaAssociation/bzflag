@@ -1,27 +1,28 @@
 Name:		bzflag
 Summary:	A multiplayer 3D tank battle game
-Version:	2.4.0
-Release:	2
+Version:	2.4.2
+Release:	1
+Epoch:		1
+License:	LGPLv2
+Group:		Games/Arcade
+URL:		http://BZFlag.SourceForge.net/
 Source0:	http://download.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
 Patch0:		bzflag-2.0.4-lookup.patch
+Patch1:		bzflag-2.0.12-findresolutions.patch
 Source11:	%{name}.16.png
 Source12:	%{name}.32.png
 Source13:	%{name}.48.png
-URL:		http://BZFlag.SourceForge.net/
-License:	LGPLv2
-Group:		Games/Arcade
 BuildRequires:	chrpath
-BuildRequires:	SDL-devel
-BuildRequires:	curl-devel
+BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	zlib-devel
-BuildRequires:	ncurses-devel
-BuildRequires:	glew-devel
-BuildRequires:	mesaglu-devel
-BuildRequires:	c-ares-devel
+BuildRequires:	pkgconfig(ncurses)
+BuildRequires:	pkgconfig(glew)
+BuildRequires:	pkgconfig(glu)
+BuildRequires:	pkgconfig(libcares)
 BuildRequires:	openldap-devel
 BuildRequires:	desktop-file-utils
 BuildConflicts:	freetds-devel
-Epoch:		1
 
 %description
 BZFlag is a multiplayer 3D tank battle game. It's one of the most popular games
@@ -30,6 +31,7 @@ ever on Silicon Graphics systems.
 %prep
 %setup -q
 %patch0 -p1 -b .lookup
+%patch1 -p1 -b .resolutions
 
 %build
 CFLAGS="%{optflags} -O3 -ffast-math" \
@@ -69,4 +71,5 @@ cp %{buildroot}%{_gamesdatadir}/%{name}/bzflag-48x48.png %{buildroot}%{_iconsdir
 %{_mandir}/*/*
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/%{name}-48x48.png
+
 
