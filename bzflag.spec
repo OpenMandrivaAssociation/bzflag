@@ -1,7 +1,7 @@
 Name:		bzflag
 Summary:	A multiplayer 3D tank battle game
 Version:	2.4.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPLv2
 Group:		Games/Arcade
