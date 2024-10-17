@@ -5,7 +5,7 @@ Release:	2
 Epoch:		1
 License:	LGPLv2
 Group:		Games/Arcade
-URL:		http://BZFlag.SourceForge.net/
+URL:		https://BZFlag.SourceForge.net/
 Source0:	http://download.sourceforge.net/bzflag/%{name}-%{version}.tar.bz2
 Patch0:		bzflag-2.0.4-lookup.patch
 Patch1:		bzflag-2.0.12-findresolutions.patch
