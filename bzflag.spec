@@ -9,6 +9,10 @@ URL:		https://github.com/BZFlag-Dev/bzflag
 License:	LGPLv2.1 or MPLv2.0
 Group:		Games/Arcade
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	make
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	zlib-devel
