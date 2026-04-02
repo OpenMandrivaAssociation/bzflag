@@ -2,7 +2,7 @@
 
 Name:		bzflag
 Version:	2.4.30
-Release:	1
+Release:	2
 Source0:	https://github.com/BZFlag-Dev/bzflag/archive/v%{version}/%{name}-%{version}.tar.gz
 Summary:	3D multi-player tank battle game
 URL:		https://github.com/BZFlag-Dev/bzflag
